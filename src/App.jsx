@@ -7,6 +7,7 @@ import Home from './pages/home';
 import Footer from './component/ui/footer';
 import Contact from './pages/contact';
 import Projects from './pages/project';
+import BookList from './pages/books'; // Assuming you have a BookList component for the books page
 function App() {
   return (
     <>
@@ -19,6 +20,7 @@ function App() {
         <Route path="/resume" element={<Resume />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/projects" element={<Projects />} />
+        <Route path="/books" element={<BookList />} /> {/* Assuming you want to use the About component for books */}
         {/* Add more routes as needed */}
       </Routes>
 

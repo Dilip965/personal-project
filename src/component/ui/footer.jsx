@@ -18,7 +18,7 @@ const Footer = () => {
         {/* Social Media Links */}
         <div className="flex justify-center space-x-10 mb-8">
           <motion.a
-            href="https://www.linkedin.com"
+            href="https://www.linkedin.com/in/dilipnandiwale/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-4xl text-gray-400 hover:text-yellow-500 transition-colors duration-300 transform hover:scale-110"
@@ -27,7 +27,7 @@ const Footer = () => {
             <FaLinkedin />
           </motion.a>
           <motion.a
-            href="https://www.github.com"
+            href="https://github.com/Dilip965/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-4xl text-gray-400 hover:text-yellow-500 transition-colors duration-300 transform hover:scale-110"
@@ -45,7 +45,7 @@ const Footer = () => {
             <FaTwitter />
           </motion.a>
           <motion.a
-            href="https://www.instagram.com"
+            href="https://www.instagram.com/dilipnandiwale965"
             target="_blank"
             rel="noopener noreferrer"
             className="text-4xl text-gray-400 hover:text-yellow-500 transition-colors duration-300 transform hover:scale-110"

@@ -1,71 +1,87 @@
 import { motion } from "framer-motion";
-import { FaLinkedin, FaGithub, FaTwitter, FaInstagram } from "react-icons/fa";
+import {
+  FaLinkedin,
+  FaGithub,
+  FaTwitter,
+  FaInstagram,
+} from "react-icons/fa";
 
 const Footer = () => {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
-    <footer className="bg-gradient-to-r from-gray-800 via-gray-900 to-black text-white py-16 mt-20">
+    <footer className="bg-gradient-to-r from-black via-gray-900 to-gray-800 text-white py-20 px-8  border-t-4 border-cyan-500">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 0.2 }}
-        className="max-w-6xl mx-auto text-center"
+        transition={{ duration: 1 }}
+        className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-16 text-center md:text-left"
       >
-        {/* Footer Heading */}
-        <h2 className="text-4xl md:text-5xl font-extrabold mb-8 text-gray-300 leading-tight">
-          Let's Connect &amp; Collaborate
-        </h2>
-
-        {/* Social Media Links */}
-        <div className="flex justify-center space-x-10 mb-8">
-          <motion.a
-            href="https://www.linkedin.com/in/dilipnandiwale/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-4xl text-gray-400 hover:text-yellow-500 transition-colors duration-300 transform hover:scale-110"
-            whileHover={{ scale: 1.1 }}
-          >
-            <FaLinkedin />
-          </motion.a>
-          <motion.a
-            href="https://github.com/Dilip965/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-4xl text-gray-400 hover:text-yellow-500 transition-colors duration-300 transform hover:scale-110"
-            whileHover={{ scale: 1.1 }}
-          >
-            <FaGithub />
-          </motion.a>
-          <motion.a
-            href="https://twitter.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-4xl text-gray-400 hover:text-yellow-500 transition-colors duration-300 transform hover:scale-110"
-            whileHover={{ scale: 1.1 }}
-          >
-            <FaTwitter />
-          </motion.a>
-          <motion.a
-            href="https://www.instagram.com/dilipnandiwale965"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-4xl text-gray-400 hover:text-yellow-500 transition-colors duration-300 transform hover:scale-110"
-            whileHover={{ scale: 1.1 }}
-          >
-            <FaInstagram />
-          </motion.a>
+        {/* Developer Info */}
+        <div className="flex flex-col items-center md:items-start">
+          <h2 className="text-3xl font-bold text-cyan-500 font-serif mb-4 tracking-widest">Dilip Nandiwale</h2>
+          <p className="text-lg text-gray-300 mb-4 font-light">
+            Full-stack Developer | Innovator | Passionate Creator
+          </p>
+          <p className="text-sm text-gray-400 leading-relaxed max-w-md">
+            I create innovative tech solutions, turning your ideas into impactful products. Let's build the future together.
+          </p>
         </div>
 
-        {/* Copyright Information */}
-        <p className="text-gray-500 text-md mb-8">© 2025 Dilip Nandiwale. All Rights Reserved.</p>
+        {/* Social Links */}
+        <div className="flex flex-col items-center md:items-start gap-6 mt-8 md:mt-0">
+          <h3 className="text-xl font-semibold text-cyan-400 font-serif mb-4">Connect with Me</h3>
+          <div className="flex gap-8 text-3xl text-gray-200 hover:text-cyan-400 transition">
+            <a
+              href="https://www.linkedin.com/in/dilipnandiwale/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-cyan-500"
+            >
+              <FaLinkedin />
+            </a>
+            <a
+              href="https://github.com/Dilip965/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-cyan-500"
+            >
+              <FaGithub />
+            </a>
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-cyan-500"
+            >
+              <FaTwitter />
+            </a>
+            <a
+              href="https://www.instagram.com/dilipnandiwale965"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-cyan-500"
+            >
+              <FaInstagram />
+            </a>
+          </div>
+        </div>
 
-        {/* Scroll to Top Button */}
-        <motion.a
-          href="#home"
-          className="text-xl text-yellow-400 mt-8 block hover:underline"
-          whileHover={{ scale: 1.05 }}
-        >
-          Back to Top
-        </motion.a>
+        {/* Utilities */}
+        <div className="flex flex-col items-center md:items-end justify-between">
+          <motion.button
+            onClick={scrollToTop}
+            whileHover={{ scale: 1.1 }}
+            className="px-6 py-3 bg-cyan-500 text-black font-serif rounded-xl shadow-xl transform transition-all duration-300 hover:bg-cyan-400 text-lg tracking-wide"
+          >
+            Go to Top
+          </motion.button>
+          <p className="text-xs text-gray-400 mt-6 md:mt-10">
+            © 2025 Dilip Nandiwale. All Rights Reserved.
+          </p>
+        </div>
       </motion.div>
     </footer>
   );

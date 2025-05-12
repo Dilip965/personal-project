@@ -1,31 +1,79 @@
+import { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import Navbar from './component/ui/navbar';
-import About from './pages/about';
-import Resume from './pages/resume';
-import Home from './pages/home';
-import Footer from './component/ui/footer';
-import Contact from './pages/contact';
-import Projects from './pages/project';
-import BookList from './pages/books'; // Assuming you have a BookList component for the books page
+
+// Lazy load components for better performance
+const Navbar = lazy(() => import('./component/ui/navbar'));
+const Footer = lazy(() => import('./component/ui/footer'));
+const Home = lazy(() => import('./pages/home'));
+const About = lazy(() => import('./pages/about'));
+const Resume = lazy(() => import('./pages/resume'));
+const Contact = lazy(() => import('./pages/contact'));
+const Projects = lazy(() => import('./pages/project'));
+const BookList = lazy(() => import('./pages/books'));
+
+// Loading component
+const LoadingSpinner = () => (
+  <div className="min-h-screen flex items-center justify-center bg-gray-900">
+    <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-yellow-400"></div>
+  </div>
+);
+
 function App() {
   return (
-    <>
-      <Navbar /> {/* This can stay at the top as it will be visible on all pages */}
+    <div className="flex flex-col min-h-screen bg-gray-900">
+      <Suspense fallback={<LoadingSpinner />}>
+        <Navbar />
+        
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={
+              <Suspense fallback={<LoadingSpinner />}>
+                <Home />
+              </Suspense>
+            } />
+            <Route path="/about" element={
+              <Suspense fallback={<LoadingSpinner />}>
+                <About />
+              </Suspense>
+            } />
+            <Route path="/resume" element={
+              <Suspense fallback={<LoadingSpinner />}>
+                <Resume />
+              </Suspense>
+            } />
+            <Route path="/contact" element={
+              <Suspense fallback={<LoadingSpinner />}>
+                <Contact />
+              </Suspense>
+            } />
+            <Route path="/projects" element={
+              <Suspense fallback={<LoadingSpinner />}>
+                <Projects />
+              </Suspense>
+            } />
+            <Route path="/books" element={
+              <Suspense fallback={<LoadingSpinner />}>
+                <BookList />
+              </Suspense>
+            } />
+            <Route path="*" element={
+              <div className="min-h-screen flex items-center justify-center">
+                <div className="text-center">
+                  <h1 className="text-4xl font-bold text-yellow-400 mb-4">404 - Page Not Found</h1>
+                  <p className="text-gray-300 mb-8">The page you're looking for doesn't exist.</p>
+                  <a href="/" className="bg-yellow-400 text-gray-900 px-6 py-3 rounded-lg hover:bg-yellow-500 transition-colors">
+                    Go Home
+                  </a>
+                </div>
+              </div>
+            } />
+          </Routes>
+        </main>
 
-      <Routes>
-        {/* Define the route paths and the components to render */}
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/resume" element={<Resume />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/books" element={<BookList />} /> {/* Assuming you want to use the About component for books */}
-        {/* Add more routes as needed */}
-      </Routes>
-
-      <Footer /> {/* Footer stays at the bottom and will be visible on all pages */}
-    </>
+        <Footer />
+      </Suspense>
+    </div>
   );
 }
 

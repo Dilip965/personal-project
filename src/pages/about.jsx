@@ -38,7 +38,7 @@ const About = () => {
               <li><strong>Frontend:</strong> React, HTML5, CSS3, Tailwind</li>
               <li><strong>Backend:</strong> Node.js, Express.js</li>
               <li><strong>Databases:</strong> PostgreSQL, MySQL, MongoDB</li>
-              <li><strong>Languages:</strong> Python, Java, C++</li>
+              <li><strong>Languages:</strong> Python, Java, C++,Javascript</li>
               <li><strong>Tools:</strong> Git, GitHub, Postman</li>
               <li><strong>Cloud:</strong> AWS, Render, Netlify</li>
               <li><strong>Systems:</strong> DBMS, OS, CN</li>

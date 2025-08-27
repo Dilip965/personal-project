@@ -24,7 +24,7 @@ const Resume = () => {
         <div className="text-center">
           <motion.a
               href="/resume.pdf"
-              download="Dilip_Nandiwale_Resume.pdf"
+              download="dilipnandiwaleresume.pdf"
             className="bg-gradient-to-r from-yellow-400 to-yellow-600 text-white px-8 py-3 rounded-lg text-xl font-semibold shadow-lg transform hover:scale-105 transition-all duration-300"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.98 }}
